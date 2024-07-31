@@ -3,9 +3,14 @@ import orderModel from '../models/oderModel.js'
 import userModel from '../models/userModel.js'
 import productModel from '../models/productModel.js'
 
+const username = encodeURIComponent("Harish");
+const password = encodeURIComponent("abcd1234");
+
+const URL = `mongodb+srv://${username}:${password}@cluster0.20bemwo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0` || process.env.MONGO_URI
+
 const connectDB = async()=>{
     try{
-        const conn = await mongoose.connect(process.env.MONGO_URI)
+        const conn = await mongoose.connect(URL)
         console.log(`MongoDB Connected: ${ conn.connection.host}`.cyan.underline)
         await orderModel.createIndexes()
         await userModel.createIndexes()
