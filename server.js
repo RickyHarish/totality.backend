@@ -8,12 +8,19 @@ import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
 import morgan from 'morgan'
+import cors from 'cors';
 
 import { errorHandler, notFound } from './middleware/errorMiddleware.js'
 
 dotenv.config()
 connectDB()
 const app = express()
+
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://totality-frontend.onrender.com'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+}));
 
 if(process.env.NODE_ENV === 'development'){
     app.use(morgan('dev'))
