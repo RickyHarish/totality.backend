@@ -17,7 +17,7 @@ connectDB()
 const app = express()
 
 app.use(cors({
-    origin: ['https://claw-frontend.onrender.com/'],
+    origin: "*",
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
 }));
