@@ -17,7 +17,7 @@ connectDB()
 const app = express()
 
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://totality-frontend.onrender.com', 'https://claw-challenge.netlify.app/'],
+    origin: ['http://localhost:3000', 'https://claw-frontend.onrender.com/', 'https://claw-challenge.netlify.app/'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
 }));
